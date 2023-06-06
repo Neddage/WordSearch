@@ -134,6 +134,15 @@ class WordSearch:
         """
         return [self._word_placements[placement].word for placement in self._word_placements]
     
+    @property
+    def grid(self) -> list[list]:
+        """ Returns the word search grid
+
+        Returns:
+            list[list]: The Word Search grid
+        """
+        return self._grid
+    
 # Custom error to indicate word placement failed
 class UnableToPlaceWordError(RuntimeError):
     pass
