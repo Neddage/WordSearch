@@ -7,7 +7,7 @@ import random
 class HorizontalWordPlacer(WordPlacerInterface):   
     MAX_ATTEMPTS = 3
     
-    def add_word(self, word:str, word_search: WordSearch) -> WordSearch:
+    def add_word(self, word:str, word_search: WordSearch) -> None:
         # Basic placement of the word on the grid only handles horizontal left-to-right words
         # We only need to check width for this method of placement
         if len(word) > word_search.width:
@@ -32,7 +32,7 @@ class HorizontalWordPlacer(WordPlacerInterface):
             
             try:
                 word_search.add_word_placement(placement)
-                return word_search
+                return None
             except UnableToPlaceWordError:
                 attempt += 1
                 # do nothing so we loop again in the while and retry        
