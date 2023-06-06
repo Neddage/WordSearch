@@ -13,6 +13,34 @@ A Python module to generate and solve word searches. This module is designed to 
 * Allow overlapping words in the grid.
 * Easily adjustable difficulty levels to cater to different users' skill sets.
 
+## Usage
+
+```python
+from word_search import WordSearch, HorizontalWordPlacer
+
+# Create a WordSearch 20 x 20 letters
+ws = WordSearch(20, 20)
+
+# Get an instance  HorizontalWordPlacer
+placer = HorizontalWordPlacer()
+
+# A list of some words to add
+words = [
+    "this",
+    "is",
+    "an",
+    "example"
+]
+
+# Add each word using the placer
+for word in words:
+    ws = placer.add_word(word, ws)
+
+# Dump out the grid
+print(ws.grid)
+
+```
+
 ## About
 
 I'm creating this as a little side project to used in a larger project designed to help my daughter to learn her weekly spellings.
