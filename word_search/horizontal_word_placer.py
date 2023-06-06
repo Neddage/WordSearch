@@ -33,10 +33,7 @@ class HorizontalWordPlacer(WordPlacerInterface):
             start_col = random.randint(0, word_search.width - len(word))
 
             # work out the letter positions
-            positions = {}
-            for index, letter in enumerate(word):
-                positions[f"{row}-{start_col + index}"] = letter
-            
+            positions = {f"{row}-{start_col + index}": letter for index, letter in enumerate(word)}
             # create the placement and try to add this to the word search
             placement = WordPlacement(word, positions)
             
