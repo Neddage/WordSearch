@@ -3,8 +3,8 @@ from word_search.word_search import WordSearch, UnableToPlaceWordError
 from word_search.word_placement import WordPlacement
 import random
 
-# Class for a basic word placer that places words horizontally onto the grid
-class BasicWordPlacer(WordPlacerInterface):
+# Class for a horizontal word placer that places words horizontally onto the grid
+class HorizontalWordPlacer(WordPlacerInterface):
     def add_word(self, word:str, word_search: WordSearch) -> WordSearch:
         # Basic placement of the word on the grid only handles horizontal left-to-right words
         # We only need to check width for this method of placement
