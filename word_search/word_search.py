@@ -28,6 +28,7 @@ class WordSearch:
         Returns:
             bool: True if it can be placed on the WordSearch False otherwise
         """
+        # TODO: Could refactor to remove need for get_all_positions_in_use but feel it might be useful later on so keeping for now
         all = self.get_positions_in_use()
         if not all:
             # if no words placed, then nothing to check
