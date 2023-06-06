@@ -5,7 +5,7 @@ import random
 
 # Class for a horizontal word placer that places words horizontally onto the grid
 class HorizontalWordPlacer(WordPlacerInterface):   
-    MAX_ATTEMPTS = 3
+    MAX_ATTEMPTS = 5
     
     def add_word(self, word:str, word_search: WordSearch) -> None:
         """ Adds the supplied word to the supplied WordSearch
