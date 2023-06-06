@@ -34,7 +34,7 @@ words = [
 
 # Add each word using the placer
 for word in words:
-    ws = placer.add_word(word, ws)
+    placer.add_word(word, ws)
 
 # Dump out the grid
 print(ws.grid)
