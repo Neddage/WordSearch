@@ -41,7 +41,7 @@ class WordPlacement:
             ValueError: The key should be a string of two numbers separated by -
             ValueError: The value should be a single letter
         """
-        # TODO: Should probably expand validation in the future to allow more flexibility
+        # TODO: Should probably expand validation in the future/move to own class to allow more flexibility
         if type(positions) is not dict:
             raise TypeError("Positions must be a dict")
         
