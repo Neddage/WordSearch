@@ -1,0 +1,44 @@
+import unittest
+from word_search.word_search import WordSearch
+from word_search.basic_word_placer import BasicWordPlacer  # Assuming this class is in a separate file
+
+class TestBasicWordPlacer(unittest.TestCase):
+    
+    def setUp(self):
+        self.basic_word_placer = BasicWordPlacer()
+        self.word_search = WordSearch(10, 10)
+
+    def test_add_word_too_long(self):
+        with self.assertRaises(ValueError):
+            self.basic_word_placer.add_word("abcdefghijklm", self.word_search)
+
+    def test_add_single_word_successfully(self):
+        try:
+            self.basic_word_placer.add_word("hello", self.word_search)
+        except RuntimeError:  
+            self.fail("add_word failed unexpectedly for a valid word")
+
+    def test_add_multiple_words_successfully(self):
+        try:
+            self.basic_word_placer.add_word("hello", self.word_search)
+            self.basic_word_placer.add_word("world", self.word_search)
+        except RuntimeError:
+            self.fail("add_word failed unexpectedly for multiple valid words")
+
+    def test_maximum_attempts_reached(self):
+        with self.assertRaises(RuntimeError):
+            word_search_single_row = WordSearch(6, 1)
+            self.basic_word_placer.add_word("apple", word_search_single_row)
+            self.basic_word_placer.add_word("banana", word_search_single_row)
+
+    def test_word_placements_are_horizontal(self):
+        word_search = self.basic_word_placer.add_word("test", self.word_search)
+        placed_word = word_search.word_placements["test"]
+        positions = list(placed_word.positions.keys())
+        row_values = set([pos.split('-')[0] for pos in positions])
+
+        self.assertEqual(len(row_values), 1, "Word was not placed horizontally")
+
+
+if __name__ == "__main__":
+    unittest.main()
