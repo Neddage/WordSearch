@@ -3,6 +3,8 @@ import random
 from word_search.word_placement import WordPlacement
 
 class WordSearch:
+    CHARACTER_SET = 'abcdefghijklmnopqrstuvwxyz'
+    
     def __init__(self, width: int, height: int) -> None:
         """ Class constructor
 
@@ -61,7 +63,7 @@ class WordSearch:
             # get each of the positions and "reset" them to a random character
             for position in self._word_placements[word].positions:
                 row, col = position.split("-")
-                self._grid[int(row)][int(col)] = random.choice('abcdefghijklmnopqrstuvwxyz')
+                self._grid[int(row)][int(col)] = random.choice(self.CHARACTER_SET)
             # remove the word placement object out the list
             del self._word_placements[word]
         
@@ -101,7 +103,7 @@ class WordSearch:
         for row in range(self._height):
             for col in range(self._width):
                 if not self._grid[row][col]:
-                    self._grid[row][col] = random.choice('abcdefghijklmnopqrstuvwxyz')
+                    self._grid[row][col] = random.choice(self.CHARACTER_SET)
                     
     @property
     def width(self) -> int:
