@@ -57,14 +57,14 @@ class TestWordSearch(unittest.TestCase):
         ws.add_word_placement(wp1)
         ws.add_word_placement(wp2)
         
-        self.assertEquals(sorted(ws.words), sorted(["test", "word"]))
+        self.assertEqual(sorted(ws.words), sorted(["test", "word"]))
 
     def test_grid_dimensions(self):
         ws = WordSearch(5, 5)
         
-        self.assertEquals(len(ws.grid), ws.height)
+        self.assertEqual(len(ws.grid), ws.height)
         for row in ws.grid:
-            self.assertEquals(len(row), ws.width)
+            self.assertEqual(len(row), ws.width)
     
 if __name__ == "__main__":
     unittest.main()
