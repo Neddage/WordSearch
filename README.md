@@ -16,7 +16,7 @@ A Python module to generate and score word searches. This module is designed to 
 ## Installation
 
 ```bash
-pip install pip install git+https://github.com/Neddage/WordSearch.git
+pip install git+https://github.com/Neddage/WordSearch.git
 ```
 
 ## Usage
