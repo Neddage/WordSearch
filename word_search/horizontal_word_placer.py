@@ -8,6 +8,16 @@ class HorizontalWordPlacer(WordPlacerInterface):
     MAX_ATTEMPTS = 3
     
     def add_word(self, word:str, word_search: WordSearch) -> None:
+        """ Adds the supplied word to the supplied WordSearch
+
+        Args:
+            word (str): The word to add to the WordSearch
+            word_search (WordSearch): The WordSearch object to add the word to
+
+        Raises:
+            ValueError: Word is too long to fit in the grid
+            RuntimeError: Unable to place word on grid, maximum attempts reached
+        """
         # Basic placement of the word on the grid only handles horizontal left-to-right words
         # We only need to check width for this method of placement
         if len(word) > word_search.width:
