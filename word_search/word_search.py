@@ -121,6 +121,10 @@ class WordSearch:
         """
         return self._height
     
+    @property
+    def word_placements(self) -> dict:
+        return self._word_placements
+    
 # Custom error to indicate word placement failed
 class UnableToPlaceWordError(RuntimeError):
     pass
