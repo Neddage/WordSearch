@@ -13,6 +13,12 @@ A Python module to generate and score word searches. This module is designed to 
 * Allow overlapping words in the grid.
 * Easily adjustable difficulty levels to cater to different users' skill sets.
 
+## Installation
+
+```bash
+pip install pip install git+https://github.com/Neddage/WordSearch.git
+```
+
 ## Usage
 
 ```python
