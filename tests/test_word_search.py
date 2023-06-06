@@ -49,6 +49,15 @@ class TestWordSearch(unittest.TestCase):
 
         with self.assertRaises(UnableToPlaceWordError):
             ws.add_word_placement(wp2)
+            
+    def test_words(self):
+        ws = WordSearch(5, 5)
+        wp1 = WordPlacement("test", {"0-0": "t", "0-1": "e", "0-2": "s", "0-3": "t"})
+        wp2 = WordPlacement("word", {"1-0": "w", "1-1": "o", "1-2": "r", "1-3": "d"})
+        ws.add_word_placement(wp1)
+        ws.add_word_placement(wp2)
+        
+        self.assertEquals(sorted(ws.words), sorted(["test", "word"]))
 
 
 if __name__ == "__main__":
