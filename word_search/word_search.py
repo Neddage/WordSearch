@@ -125,6 +125,15 @@ class WordSearch:
     def word_placements(self) -> dict:
         return self._word_placements
     
+    @property
+    def words(self) -> list[str]:
+        """ Returns a list of the words current on the WordSearch
+
+        Returns:
+            list[str]: _description_
+        """
+        return [self._word_placements[placement].word for placement in self._word_placements]
+    
 # Custom error to indicate word placement failed
 class UnableToPlaceWordError(RuntimeError):
     pass
