@@ -50,8 +50,8 @@ class WordSearch:
         """
         in_use = []
         # I feel there is a more pythonic way of doing this but for right now we loop through and build the positions array
-        for placement in self._word_placements:
-            in_use.extend(self._word_placements[placement].positions)
+        for placement in self._word_placements.values():
+            in_use.extend(placement.positions)    
         return in_use
     
     def remove_word(self, word: str) -> None:
@@ -83,9 +83,9 @@ class WordSearch:
         if not self.can_place(placement):
             raise UnableToPlaceWordError('Unable to place the word on the grid')
         # update the word search grid with the letters
-        for position in placement.positions:
+        for position, letter in placement.positions.items():
             row, column = position.split("-")
-            self._grid[int(row)][int(column)] = placement.positions[position]
+            self._grid[int(row)][int(column)] = letter
         # Add it to the dictionary of words placements
         self._word_placements[placement.word] = placement
     
