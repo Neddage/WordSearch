@@ -4,17 +4,18 @@ from word_search.word_placement import WordPlacement
 import random
 
 # Class for a horizontal word placer that places words horizontally onto the grid
-class HorizontalWordPlacer(WordPlacerInterface):
+class HorizontalWordPlacer(WordPlacerInterface):   
+    MAX_ATTEMPTS = 3
+    
     def add_word(self, word:str, word_search: WordSearch) -> WordSearch:
         # Basic placement of the word on the grid only handles horizontal left-to-right words
         # We only need to check width for this method of placement
         if len(word) > word_search.width:
             raise ValueError('Word is too long to fit in the grid')
         
-        # we'll attempt things 3 times
+        # Make MAX_ATTEMPTS
         attempt = 0
-        while attempt <= 3:
-            attempt += 1
+        while attempt < self.MAX_ATTEMPTS:
             # Choose a random row for the word
             row = random.randint(0, word_search.height - 1)
 
@@ -33,6 +34,7 @@ class HorizontalWordPlacer(WordPlacerInterface):
                 word_search.add_word_placement(placement)
                 return word_search
             except UnableToPlaceWordError:
-                if attempt >= 3:
-                    raise RuntimeError('Unable to place word on grid, maximum attempts reached')
+                attempt += 1
                 # do nothing so we loop again in the while and retry        
+                
+        raise RuntimeError('Unable to place word on grid, maximum attempts reached')
