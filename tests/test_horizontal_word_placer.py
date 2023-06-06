@@ -32,8 +32,8 @@ class TestHorizontalWordPlacer(unittest.TestCase):
             self.horizontal_word_placer.add_word("banana", word_search_single_row)
 
     def test_word_placements_are_horizontal(self):
-        word_search = self.horizontal_word_placer.add_word("test", self.word_search)
-        placed_word = word_search.word_placements["test"]
+        self.horizontal_word_placer.add_word("test", self.word_search)
+        placed_word =  self.word_search.word_placements["test"]
         positions = list(placed_word.positions.keys())
         row_values = set([pos.split('-')[0] for pos in positions])
 
