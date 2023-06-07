@@ -12,4 +12,3 @@ class WordPlacerInterface(ABC):
             word (str): The word to add to the WordSearch object
             word_search (WordSearch): The WordSearch object to add the word to
         """
-        pass

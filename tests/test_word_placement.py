@@ -37,6 +37,16 @@ class TestWordPlacement(unittest.TestCase):
                 "0_3": "t"
             }
             WordPlacement("test", invalid_positions)
+    
+    def test_word_placement_positions_digit(self):
+        with self.assertRaises(ValueError):
+            invalid_positions = {
+                "A-0": "t",
+                "B-1": "e",
+                "C-2": "s",
+                "D-3": "t"
+            }
+            WordPlacement("test", invalid_positions)
 
     def test_word_placement_positions_letter_too_long(self):
         with self.assertRaises(ValueError):
