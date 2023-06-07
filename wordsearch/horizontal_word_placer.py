@@ -3,12 +3,13 @@ from wordsearch.word_search import WordSearch, UnableToPlaceWordError
 from wordsearch.word_placement import WordPlacement
 import random
 
+
 # Class for a horizontal word placer that places words horizontally onto the grid
-class HorizontalWordPlacer(WordPlacerInterface):   
+class HorizontalWordPlacer(WordPlacerInterface):
     MAX_ATTEMPTS = 5
-    
-    def add_word(self, word:str, word_search: WordSearch) -> None:
-        """ Adds the supplied word to the supplied WordSearch
+
+    def add_word(self, word: str, word_search: WordSearch) -> None:
+        """Adds the supplied word to the supplied WordSearch
 
         Args:
             word (str): The word to add to the WordSearch
@@ -21,8 +22,8 @@ class HorizontalWordPlacer(WordPlacerInterface):
         # Basic placement of the word on the grid only handles horizontal left-to-right words
         # We only need to check width for this method of placement
         if len(word) > word_search.width:
-            raise ValueError('Word is too long to fit in the grid')
-        
+            raise ValueError("Word is too long to fit in the grid")
+
         # Make MAX_ATTEMPTS
         attempt = 0
         while attempt < self.MAX_ATTEMPTS:
@@ -36,12 +37,12 @@ class HorizontalWordPlacer(WordPlacerInterface):
             positions = {f"{row}-{start_col + index}": letter for index, letter in enumerate(word)}
             # create the placement and try to add this to the word search
             placement = WordPlacement(word, positions)
-            
+
             try:
                 word_search.add_word_placement(placement)
                 return None
             except UnableToPlaceWordError:
                 attempt += 1
-                # do nothing so we loop again in the while and retry        
-                
-        raise RuntimeError('Unable to place word on grid, maximum attempts reached')
+                # do nothing so we loop again in the while and retry
+
+        raise RuntimeError("Unable to place word on grid, maximum attempts reached")

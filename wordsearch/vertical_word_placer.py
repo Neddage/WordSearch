@@ -3,9 +3,10 @@ from wordsearch.word_placer_interface import WordPlacerInterface
 from wordsearch.word_search import WordSearch, UnableToPlaceWordError
 from wordsearch.word_placement import WordPlacement
 
+
 class VerticalWordPlacer(WordPlacerInterface):
     MAX_ATTEMPTS = 5
-    
+
     def add_word(self, word: str, word_search: WordSearch) -> None:
         """
         Adds the supplied word to the supplied WordSearch vertically.
@@ -21,20 +22,20 @@ class VerticalWordPlacer(WordPlacerInterface):
         word_length = len(word)
 
         if word_length > word_search.height:
-            raise ValueError('Word is too long to fit in the grid')
-        
+            raise ValueError("Word is too long to fit in the grid")
+
         attempt = 0
         while attempt < self.MAX_ATTEMPTS:
             col = random.randint(0, word_search.width - 1)
             start_row = random.randint(0, word_search.height - word_length)
-              
+
             positions = {f"{start_row + index}-{col}": letter for index, letter in enumerate(word)}
             placement = WordPlacement(word, positions)
-            
+
             try:
                 word_search.add_word_placement(placement)
                 return None
             except UnableToPlaceWordError:
                 attempt += 1
-        
-        raise RuntimeError('Unable to place word on grid, maximum attempts reached.')
+
+        raise RuntimeError("Unable to place word on grid, maximum attempts reached.")
