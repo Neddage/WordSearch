@@ -22,7 +22,7 @@ pip install git+https://github.com/Neddage/WordSearch.git
 ## Usage
 
 ```python
-from word_search import WordSearch, HorizontalWordPlacer, VerticalWordPlacer
+from wordsearch import WordSearch, HorizontalWordPlacer, VerticalWordPlacer
 import random
 
 # Create a WordSearch 20 x 20 letters

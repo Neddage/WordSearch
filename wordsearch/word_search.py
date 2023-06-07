@@ -1,6 +1,6 @@
 # from word_search.word_placer_interface import WordPlacerInterface
 import random
-from word_search.word_placement import WordPlacement
+from wordsearch.word_placement import WordPlacement
 
 class WordSearch:
     CHARACTER_SET = 'abcdefghijklmnopqrstuvwxyz'

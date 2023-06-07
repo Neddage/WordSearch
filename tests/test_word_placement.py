@@ -1,5 +1,5 @@
 import unittest
-from word_search.word_placement import WordPlacement 
+from wordsearch.word_placement import WordPlacement 
 
 class TestWordPlacement(unittest.TestCase):
 

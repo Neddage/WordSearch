@@ -1,6 +1,6 @@
-from word_search.word_placer_interface import WordPlacerInterface
-from word_search.word_search import WordSearch, UnableToPlaceWordError
-from word_search.word_placement import WordPlacement
+from wordsearch.word_placer_interface import WordPlacerInterface
+from wordsearch.word_search import WordSearch, UnableToPlaceWordError
+from wordsearch.word_placement import WordPlacement
 import random
 
 # Class for a horizontal word placer that places words horizontally onto the grid

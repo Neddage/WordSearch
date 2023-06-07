@@ -1,6 +1,6 @@
 import unittest
-from word_search.word_search import WordSearch
-from word_search.horizontal_word_placer import HorizontalWordPlacer
+from wordsearch.word_search import WordSearch
+from wordsearch.horizontal_word_placer import HorizontalWordPlacer
 
 class TestHorizontalWordPlacer(unittest.TestCase):
     

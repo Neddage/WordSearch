@@ -1,6 +1,6 @@
 import unittest
-from word_search.word_search import WordSearch, UnableToPlaceWordError
-from word_search.word_placement import WordPlacement
+from wordsearch.word_search import WordSearch, UnableToPlaceWordError
+from wordsearch.word_placement import WordPlacement
 
 class TestWordSearch(unittest.TestCase):
     def test_initialise_grid(self):

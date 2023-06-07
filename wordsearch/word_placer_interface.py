@@ -1,5 +1,5 @@
 from abc import ABC, abstractclassmethod
-from word_search.word_search import WordSearch
+from wordsearch.word_search import WordSearch
 
 # Interface for word "placers" to implement.
 class WordPlacerInterface(ABC):
