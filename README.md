@@ -55,4 +55,4 @@ for row in ws.grid:
 
 ## About
 
-I'm creating this as a little side project to used in a larger project designed to help my daughter to learn her weekly spellings.
+I'm creating this as a little side project to used in a larger project designed to help my daughter to learn her weekly spellings and as something simple to show my code style.
